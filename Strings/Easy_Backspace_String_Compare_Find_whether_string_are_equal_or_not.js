@@ -1,4 +1,5 @@
 /*
+/////////////////////////////       Method 1 - O(n) time & O(n) space
 function equalString(s, t) {
   let s2 = Array.from(s);
   let t2 = Array.from(t);
@@ -28,37 +29,41 @@ let s2 = "abe#f#d#d#f#d";
 console.log(equalString(s1, s2));
 */
 
-// function equalString(s, t) {
-//   let s2 = Array.from(s);
-//   let t2 = Array.from(t);
+/*
+/////////////////////////////       Method 2 - O(n^2) time & O(1) space
+function equalString(s, t) {
+  let s2 = Array.from(s);
+  let t2 = Array.from(t);
 
-//   removeHashSign(s2);
-//   removeHashSign(t2);
+  removeHashSign(s2);
+  removeHashSign(t2);
 
-//   console.log(s2);
-//   console.log(t2);
+  console.log(s2);
+  console.log(t2);
 
-//   if (s2.length !== t2.length) return false;
+  if (s2.length !== t2.length) return false;
 
-//   for (let i = 0; i < s2.length; i++) if (s2[i] !== t2[i]) return false;
+  for (let i = 0; i < s2.length; i++) if (s2[i] !== t2[i]) return false;
 
-//   return true;
-// }
+  return true;
+}
 
-// function removeHashSign(array) {
-//   for (let i = array.length - 1; i >= 0; i--) {
-//     if (array[i] !== "#") continue;
-//     else if ((array[i] === "#") && (i !== 0)) {
-//       array.splice(i - 1, 2);
-//       i--;
-//     } else if ((array[i] === "#") && (i === 0)) array.splice(i, 1);
-//   }
-// }
+function removeHashSign(array) {
+  for (let i = array.length - 1; i >= 0; i--) {
+    if (array[i] !== "#") continue;
+    else if ((array[i] === "#") && (i !== 0)) {
+      array.splice(i - 1, 2);
+      i--;
+    } else if ((array[i] === "#") && (i === 0)) array.splice(i, 1);
+  }
+}
 
-// let s1 = "###abc#d#d#d";
-// let s2 = "#abe#f#d#d#f#d";
-// console.log(equalString(s1, s2));
+let s1 = "###abc#d#d#d";
+let s2 = "#abe#f#d#d#f#d";
+console.log(equalString(s1, s2));
+*/
 
+/////////////////////////////       Method 3 - O(n) time & O(1) space
 ///////////////////////////// O(n), ztm ka efficient tareeqa tora difrnt h , us n while loop use kia h
 function equalString(s, t) {
   let s2Ptr = s.length;
