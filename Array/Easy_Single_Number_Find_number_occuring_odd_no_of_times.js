@@ -68,7 +68,7 @@ You must implement a solution with a linear runtime complexity and use only cons
 /*
 //  ---------------- Method 4 - O(n) time & O(1) space
 (function () {
-  let nums = [2, 2, 5];
+  let nums = [1, 2, 5];
   let length = nums.length;
   let xor = nums[0];
 
