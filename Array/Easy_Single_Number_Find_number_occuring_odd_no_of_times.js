@@ -1,7 +1,12 @@
-//   --------------- Method 1 - O(n^2) time
+/* 
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+You must implement a solution with a linear runtime complexity and use only constant extra space.
+*/
+
 /*
+//   --------------- Method 1 - O(n^2) time & O(1) space
 (function () {
-  let nums = [1, 3, 3, 1, 3, 2, 1, 2];
+  let nums = [1, 3, 3, 1, 1];
   let count = 0;
 
   for (let i of nums) {
@@ -18,8 +23,8 @@
 })();
 */
 
-//   --------------- Method 2 - O(n*logn)
 /*
+//   --------------- Method 2 - O(n*logn) time & O(1) space
 (function () {
   let nums = [1, 2, 2, 4, 2, 2, 1, 2];
   let length = nums.length;
@@ -40,8 +45,8 @@
 })();
 */
 
-//  ---------------- Method 3 - O(n) time & O(k) space
 /*
+//  ---------------- Method 3 - O(n) time & O(k) space
 (function () {
   let nums = [2, 2, 4, 2, 3, 2, 3, 4, 4];
   let allOccurence = {};
@@ -60,14 +65,15 @@
 })();
 */
 
-//  ---------------- Method 4 - O(n) time & O(1) space
 /*
+// buddy/wrong
+//  ---------------- Method 4 - O(n) time & O(1) space
 (function () {
-  let nums = [0, 1];
+  let nums = [3, 1, 1, 3, 3, 2];
   let length = nums.length;
   let xor = nums[0];
 
-  for (let i = 1; i < length; i++) xor ^= nums[i];
+  for (let i = 1; i < length; i++) xor = xor ^ nums[i];
 
   console.log(xor);
 })();
