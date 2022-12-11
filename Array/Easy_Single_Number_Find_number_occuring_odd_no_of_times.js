@@ -66,15 +66,17 @@ You must implement a solution with a linear runtime complexity and use only cons
 */
 
 /*
-// buddy/wrong
 //  ---------------- Method 4 - O(n) time & O(1) space
 (function () {
-  let nums = [3, 1, 1, 3, 3, 2];
+  let nums = [2, 2, 5];
   let length = nums.length;
   let xor = nums[0];
 
   for (let i = 1; i < length; i++) xor = xor ^ nums[i];
 
-  console.log(xor);
+  if (xor !== 0) {
+    console.log(xor);
+    return xor;
+  }
 })();
 */
