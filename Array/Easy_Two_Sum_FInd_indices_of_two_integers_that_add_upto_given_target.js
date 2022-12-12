@@ -4,11 +4,11 @@ return indices of the two numbers such that they add up to target.
 */
 
 /*
-//  --------------------- Method 1 - O(n^2)
+//  --------------------- Method 1 - O(n^2) time & O(1) space
 let nums = [2, 7, 11, 15];
 // let nums = [3, 2, 4];
 // let nums = [3, 3];
-let target = 6;
+let target = 9;
 
 function twoSum(nums, target) {
   for (let i in nums)
@@ -21,7 +21,7 @@ console.log(twoSum(nums, target));
 */
 
 /*
-//  --------------------- Method 2 - O(n^2)
+//  --------------------- Method 2 - O(n^2) & O(1) space
 // let nums = [2, 7, 11, 15];
 let nums = [3, 2, 4];
 // let nums = [3, 3];
@@ -65,20 +65,23 @@ function twoSum(nums, target) {
 console.log(twoSum(nums, target));
 */
 
+/*
 //  --------------------- Method 4 - O(n) time & O(n) space
-
 // let nums = [2, 7, 11, 15];
 // let nums = [3, 2, 4];
-let nums = [3, 3];
-let target = 0;
-let differences = {};
+let nums = [3, 3, 4];
+let target = 6;
 
 function twoSum2(nums, target) {
   let numberToFind;
+  let differences = {};
+
   for (let i = 0; i < nums.length; i++) {
     numberToFind = target - nums[i];
     differences[numberToFind] = i;
   }
+
+  console.log(differences);
 
   for (let i = 0; i < nums.length; i++)
     if (differences[nums[i]] && i != differences[nums[i]]) return [i, differences[nums[i]]];
@@ -87,4 +90,4 @@ function twoSum2(nums, target) {
 }
 
 console.log(twoSum2(nums, target));
-console.log(differences);
+*/
