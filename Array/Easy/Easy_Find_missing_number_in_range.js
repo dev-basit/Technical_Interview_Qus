@@ -65,7 +65,7 @@
 
   let nums = [1, 5, 4, 10, 6, 7, 9, 8, 2];
   let sumOfArrayElements = 0;
-  let arrayLength = 10; //in this case 10
+  let arrayLength = nums.length+1; //in this case 10
 
   console.log("initialy sum is ", sumOfArrayElements);
 

@@ -4,8 +4,8 @@ The majority element is the element that appears more than ⌊n / 2⌋ times.
 You may assume that the majority element always exists in the array.
 */
 
-//  ----------------- Method 1 - O(n^2) time
 /*
+//  ----------------- Method 1 - O(n^2) time
 (function () {
   let nums = [0, 1, 1];
   let count = 0;
@@ -33,8 +33,8 @@ You may assume that the majority element always exists in the array.
 })();
 */
 
-//  ----------------- Method 2 - O(nlogn) time
 /*
+//  ----------------- Method 2 - O(nlogn) time
 (function () {
   let nums = [2, 2, 1, 1, 2];
   nums.sort();
@@ -57,75 +57,61 @@ You may assume that the majority element always exists in the array.
 })();
 */
 
-//  ----------------- Method 3 - O(n) time, and O(n) space
 /*
+//  ----------------- Method 3 - O(n) time, and O(k) space
 (function () {
-  let nums = [1, 0, 1, 1];
-  let numsDict = {};
-  let length = nums.length;
+  let elements = [1, 0, 1, 1];
+  let noOfRepetitions = {};
+  let length = elements.length;
 
   // initialize an object for values in nums array
-  for (let value of nums) {
-    if (!numsDict[value]) numsDict[value] = 1;
-    else numsDict[value] += 1;
+  for (let value of elements) {
+    if (!noOfRepetitions[value]) noOfRepetitions[value] = 1;
+    else noOfRepetitions[value] += 1;
   }
 
-  let maxPair = {};
-  let count = 0;
-  for (let i in numsDict) {
-    if (numsDict[i] > count) {
-      maxPair = {};
-      count = numsDict[i];
-      maxPair[i] = numsDict[i];
+  let majorityElement;
+  let maxRepeated = 0;
+
+  for (let i in noOfRepetitions) {
+    if (noOfRepetitions[i] > maxRepeated) {
+      majorityElement = i;
+      maxRepeated = noOfRepetitions[i];
     }
   }
 
-  let greatestElement = Object.keys(maxPair); // maxPair has only 1 property, it will get key of first property
-  if (maxPair[greatestElement] > length / 2) {
-    console.log(
-      "maj element ",
-      parseInt(greatestElement),
-      "repeated ",
-      maxPair[greatestElement]
-    );
-    return [maxPair[greatestElement], greatestElement];
+  if (maxRepeated > length / 2) {
+    console.log("maj element is", majorityElement, "and repeated", maxRepeated, " times");
+    return [majorityElement, maxRepeated];
   }
 })();
 */
 
-//  ----------------- Method 4 - O(n) time
 /*
+//  ----------------- Method 4 - O(n) time & O(1) space
 (function () {
-  let nums = [0, 1, 1];
+  let elements = [0, 1, 0];
+  let majorityElement = elements[0];
+  let length = elements.length;
   let count = 0;
-  let majorityElement = nums[0];
 
-  length = nums.length;
-
-  for (let value of nums) {
+  for (let value of elements) {
     if (count === 0) {
       majorityElement = value;
       count += 1;
     } else {
-      if (majorityElement == value) count += 1;
+      if (majorityElement === value) count += 1;
       else count -= 1;
     }
   }
 
-  //  reusing the same count variable,
-  count = 0;
+  let maxRepeated = 0;
 
   //  final traversal, confirming majority element
-  for (let value of nums) if (value == majorityElement) count += 1;
+  for (let value of elements) if (value === majorityElement) maxRepeated += 1;
 
-  if (count > length / 2)
-    console.log(
-      "majority element is ",
-      majorityElement,
-      "and it repeated ",
-      count,
-      " times"
-    );
+  if (maxRepeated > length / 2)
+    console.log("majority element is ", majorityElement, "and it repeated ", maxRepeated, " times");
   else console.log("no majority element");
 })();
 */
